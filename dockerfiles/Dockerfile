@@ -17,7 +17,11 @@ WORKDIR /app/src
 
 RUN apt-get update
 RUN apt-get upgrade -y
+RUN apt-get install -y software-properties-common npm
 
+RUN apt-get install -y nodejs
+RUN npm install -g bash-language-server
+RUN npm install -g unified-language-server
 RUN pip install jupyter jupyterlab
 
 RUN apt-get install libharfbuzz-dev  libfribidi-dev -y
@@ -34,6 +38,7 @@ RUN R -e "IRkernel::installspec()"
 RUN pip install rpy2-arrow
 RUN pip install jupyterlab-lsp
 RUN pip install pandas statsmodels scikit-learn matplotlib seaborn missingpy
+RUN pip install 'python-lsp-server[all]'
 
 
 EXPOSE 8888
