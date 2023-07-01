@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  web:
+    build:
+        dockerfile: dockerfiles/Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
